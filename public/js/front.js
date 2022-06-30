@@ -1932,6 +1932,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 //import { defineComponent } from '@vue/composition-api'
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home'
@@ -2085,10 +2089,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'App'
+  name: 'App',
+  data: function data() {
+    return {
+      menu_items: [{
+        route_name: 'home',
+        route_text: 'Home'
+      }, {
+        route_name: 'about',
+        route_text: 'About'
+      }, {
+        route_name: 'posts',
+        route_text: 'Posts'
+      }]
+    };
+  }
 });
 
 /***/ }),
@@ -37703,9 +37719,22 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Homepage")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h1", { staticClass: "position-absolute top-0 start-0" }, [
+        _vm._v("Homepage"),
+      ]),
+      _vm._v(" "),
+      _c("img", { attrs: { src: "https://picsum.photos/1440/800", alt: "" } }),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -37919,55 +37948,58 @@ var render = function () {
             "navbar navbar-expand-md navbar-light bg-white shadow-sm",
         },
         [
-          _c("div", { staticClass: "container" }, [
-            _c("h1", [_vm._v("Boolpress")]),
-            _vm._v(" "),
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "collapse navbar-collapse",
-                attrs: { id: "navbarSupportedContent" },
-              },
-              [
-                _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+          _c(
+            "div",
+            { staticClass: "container" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navbar-brand",
+                  attrs: { to: { name: "home" } },
+                },
+                [_c("h1", [_vm._v("Boolpress")])]
+              ),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "collapse navbar-collapse",
+                  attrs: { id: "navbarSupportedContent" },
+                },
+                [
                   _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c("router-link", { attrs: { to: "/" } }, [
-                        _vm._v("Home"),
-                      ]),
-                    ],
-                    1
+                    "ul",
+                    { staticClass: "navbar-nav mr-auto" },
+                    _vm._l(_vm.menu_items, function (item) {
+                      return _c(
+                        "li",
+                        { key: item, staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            { attrs: { to: "{name: item.route_name}" } },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(item.route_text) +
+                                  "\n                    "
+                              ),
+                            ]
+                          ),
+                        ],
+                        1
+                      )
+                    }),
+                    0
                   ),
-                  _vm._v(" "),
-                  _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c("router-link", { attrs: { to: "/about" } }, [
-                        _vm._v("About"),
-                      ]),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c("router-link", { attrs: { to: "/posts" } }, [
-                        _vm._v("Posts"),
-                      ]),
-                    ],
-                    1
-                  ),
-                ]),
-              ]
-            ),
-          ]),
+                ]
+              ),
+            ],
+            1
+          ),
         ]
       ),
       _vm._v(" "),
