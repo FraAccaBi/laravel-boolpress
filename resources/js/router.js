@@ -9,6 +9,7 @@ Vue.use(VueRouter)
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Posts from './Pages/Posts';
+import Post from './Pages/Post';
 
 // 1. Define route components.
 // These can be imported from other files
@@ -22,7 +23,8 @@ import Posts from './Pages/Posts';
 const routes = [
   { path: '/', name:'home', component: Home },
   { path: '/about', name:'about', component: About },
-  { path: '/posts', name:'posts', component: Posts }
+  { path: '/posts', name:'posts', component: Posts },
+  { path: '/posts/:title', name:'post', component: Post }
 ]
 
 // 3. Create the router instance and pass the `routes` option

@@ -36,7 +36,11 @@
                             <img width="100%" :src="post.cover_img" alt="">
                             <div class="card-body">
                                 <h3>{{post.title}}</h3>
-                                <p>{{post.content}} </p>
+                                <p>{{post.content.slice(0, 200) + '...'}} </p>
+                                <router-link :to="{ name: 'post', params: {title: post.title}}">
+                                    Read more
+                                </router-link>
+
                             </div>
                             <div class="card-footer">
                                 <span v-if="post.category">
@@ -81,7 +85,7 @@ export default ({
                 .then((response) => {
                     console.log(response);
                     this.postsResponse = response.data
-                    console.log(this.postsResponse.current_page);
+                    console.log(response);
                 })
                 .catch(e => {
                     console.error(e);
