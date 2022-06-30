@@ -14,7 +14,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item" v-for="item in menu_items" :key="item">
-                        <router-link to="{name: item.route_name}">
+                        <router-link :to="{name: item.route_name}">
                             {{item.route_text}}
                         </router-link>
                     </li>
